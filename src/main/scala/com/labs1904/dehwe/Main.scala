@@ -17,6 +17,9 @@ object Main {
 
     val doubledAges = peopleDs.select($"name", $"age"*2, $"dept")
     doubledAges.foreach(person=>println(person))
+
+    val averageAgeByDept = peopleDs.groupBy("dept").avg("age")
+    averageAgeByDept.foreach(deptAvgAge=>println(deptAvgAge))
     
   }
 
