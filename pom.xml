@@ -18,7 +18,6 @@
 
     <build>
         <sourceDirectory>src/main/scala</sourceDirectory>
-        <testSourceDirectory>src/test/scala</testSourceDirectory>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -141,12 +140,6 @@
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-hive_${scala.compat.version}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
-        <!-- Spark streaming -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kinesis-asl_${scala.compat.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
     <!-- Test dependencies -->
