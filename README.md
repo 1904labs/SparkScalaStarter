@@ -1,12 +1,7 @@
 # Spark Scala Starter Project
 
-A simple Scala project that reads in a local CSV file from "/tmp/people.txt". File should have 1 header line and 3 columns representing name, age, and department.
+A simple Scala project that demos reading in a csv file. 
 
-## File Example
-```
-Name,Age,Dept
-Tim,36,Data Engineering
-```
 ## Building the jar file
 From the project directory, eg, /home/tim/SparkScalaStarter:
 `mvn clean package`
