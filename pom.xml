@@ -142,12 +142,6 @@
             <artifactId>spark-hive_${scala.compat.version}</artifactId>
             <version>${spark.version}</version>
         </dependency>
-        <!-- Spark streaming -->
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-streaming-kinesis-asl_${scala.compat.version}</artifactId>
-            <version>${spark.version}</version>
-        </dependency>
     <!-- Test dependencies -->
     <dependency>
         <groupId>org.scalatest</groupId>
