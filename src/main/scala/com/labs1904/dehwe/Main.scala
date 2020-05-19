@@ -1,6 +1,7 @@
 package com.labs1904.dehwe
 
 import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.functions._
 case class Person(name: String, age: Int, dept: String)
 
 object Main {
@@ -9,18 +10,12 @@ object Main {
 
   def main(args: Array[String]) = {
 
-    val spark = SparkSession.builder().appName(jobName).getOrCreate()
-    import spark.implicits._
+    //Create a SparkSession object
+    //Note: this line is not needed in the spark-shell: a SparkSession named "spark" is automatically created
+    val spark = SparkSession.builder().master("local[1]").appName(jobName).getOrCreate()
 
-    val peopleDs = spark.read.option("header", true).option("inferSchema", true).csv("file:///tmp/people.txt").as[Person]
-    peopleDs.printSchema()
-
-    val doubledAges = peopleDs.select($"name", $"age"*2, $"dept")
-    doubledAges.foreach(person=>println(person))
-
-    val averageAgeByDept = peopleDs.groupBy("dept").avg("age")
-    averageAgeByDept.foreach(deptAvgAge=>println(deptAvgAge))
-    
+    val ratingsDf = spark.read.option("header", true).option("inferSchema", true).csv("src/main/data/movie_ratings.csv")
+    ratingsDf.printSchema()
   }
 
 }
